@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: rgba(206, 204, 204, 0.678)!important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo{
+  height: 70px;
+  width: 70px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card{
+  height: 280px;
+}
+.card-img-top,.img-fluid{
+  height: 260px!important;
+}
+
+.img-fluid1{
+  height: auto!important;
+}
+
+.row {
+    margin-right: 0!important;
+    margin-left: 0!important;
+}
+
+
+.btn-black{
+  background:transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem!important;
+  color: black!important;
+  border-radius: 0!important;
+  border:0.1rem solid black!important;
+  transition: all 3s ease-in;
+}
+.btn-black:hover{
+  background: black;
+  color: white!important;
+}
+.cart-icon{
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: yellow;
+}
+/* nav{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 10px 10px 5px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+} */
+/* .top-nav{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.top-nav h4{
+  font-size: 1.25rem;
+} */
