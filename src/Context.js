@@ -5,21 +5,27 @@ import {storeProducts,detailProduct} from './data';
 
 const ProductContext = React.createContext();
 
+let cartArray = [];
 
 function ProductProvider(props) {
     const [product, setproduct] = useState([]);
     const [detail, setdetail] = useState(detailProduct);
-    const [cart, setcart] = useState(storeProducts);
+    const [cart, setcart] = useState(cartArray);
     const [modalOpen, setmodalOpen] = useState(false);
     const [modalProduct, setmodalProduct] = useState(detailProduct);
     const [subTotal, setsubTotal] = useState(0);
     const [cartTax, setcartTax] = useState(0);
     const [cartTotal, setcartTotal] = useState(0);
 
+
     useEffect(() => {
         setMethod();
-        //setproduct();
     }, [])
+
+    useEffect(() => {
+        addTotal();
+
+    }, [cart])
 
     const setMethod=()=>
     {
@@ -52,11 +58,13 @@ function ProductProvider(props) {
        const price = newProduct.price;
        newProduct.total = price;
 
+       setcart([...cart,newProduct]);
+       setproduct(tempProduct);
 
-       return(
-        setproduct(tempProduct),
-        setcart([...cart,newProduct])
-       )
+
+
+       addTotal()
+ 
     }
 
     const openModal = id=>
@@ -76,18 +84,78 @@ function ProductProvider(props) {
     }
 
     const increment = id =>{
+        let tempCart = [...cart];
+        const selectedProduct = tempCart.find(item=>item.id === id)
 
+        const index = tempCart.indexOf(selectedProduct);
+
+        const product = tempCart[index];
+
+        product.count = product.count + 1;
+
+        product.total = product.count * product.price;
+
+        setcart([...tempCart]);
+
+        addTotal();
     }
 
     const decrement = id =>{
-        
+        let tempCart = [...cart];
+        const selectedProduct = tempCart.find(item=>item.id === id)
+
+        const index = tempCart.indexOf(selectedProduct);
+
+        const deproduct = tempCart[index];
+
+        deproduct.count = deproduct.count - 1;
+        if(deproduct.count === 0)
+        {
+            removeItem(id);
+        }else{
+            deproduct.total = deproduct.count * deproduct.price;
+            setcart([...tempCart]);
+            addTotal();
+        }
+
+
     }
 
     const removeItem = id =>{
-        
+        let removeProduct = [...product];
+        let tempCart = [...cart];
+        tempCart = tempCart.filter(item => item.id !== id);
+
+        const index = removeProduct.indexOf(getItem(id));
+        let removeItem = removeProduct[index];
+        removeItem.inCart = false;
+        removeItem.count = 0;
+        removeItem.total = 0;
+
+        setcart(tempCart);
+        setproduct(removeProduct);
+        addTotal();
+
     }
-    const clearCart = id =>{
-        
+    const clearCart = () =>{
+        setcart([])
+        setMethod();
+        addTotal();
+    }
+
+    const addTotal = () =>{
+        let newSubtotal = 0;
+        cart.map(item=>
+            {
+                newSubtotal += item.total;
+            });
+        const tempTax = newSubtotal * 0.1;
+        const tax = parseFloat(tempTax.toFixed(2));
+        const total = newSubtotal + tax;
+
+        setsubTotal(newSubtotal);
+        setcartTax(tax);
+        setcartTotal(total);
     }
 
     return (

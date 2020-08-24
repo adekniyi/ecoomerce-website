@@ -26,16 +26,14 @@ function CartItem({cart,value}) {
                             <span className="btn btn-black mx-1" onClick={()=>increment(id)}>+</span>
                         </div>
                     </div>
-
-                    <div className="col-10 mx-auto col-lg-2">
+                </div>
+                <div className="col-10 mx-auto col-lg-2">
                         <div className="cart-icon" onClick={()=>removeItem(id)}>
-                            <i className = "fas fa-trash"></i>
+                            <i className = "fa fa-trash"></i>
                         </div>
                     </div>
-
-                    <div className="col-10 mx-auto col-lg-2">
+                <div className="col-10 mx-auto col-lg-2">
                         <strong>item total : ${total}</strong>
-                    </div>
                 </div>
             </div>
         )

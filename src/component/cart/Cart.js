@@ -4,6 +4,8 @@ import CartColumn from './CartColumn';
 import EmptyCart from './EmptyCart';
 import {ProductConsumer} from '../../Context';
 import CartList from './CartList';
+import CartTotal from './CartTotal';
+
 
 function Cart() {
   return (
@@ -18,6 +20,7 @@ function Cart() {
                 <Title className="py-5" title = "Cart"/>
                 <CartColumn/>
                 <CartList value ={value}/>
+                <CartTotal value ={value}/>
                 </>
               )
             }else{
