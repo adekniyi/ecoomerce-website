@@ -344,6 +344,12 @@ export const storeProducts = [{
             }
 ];
 
+
+export const yourLook ={
+    img: "images/photostockeditor-aEeN9ru_cu4-unsplash.jpg"
+}
+
+
 export const detailProduct = {
     id: uuid(),
     title: "Google Pixel - Black",
