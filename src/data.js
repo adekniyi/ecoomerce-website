@@ -12,7 +12,7 @@ export const storeProducts = [{
         img: "images/photostockeditor-aEeN9ru_cu4-unsplash.jpg",
         price: 10,
         company: "GOOGLE",
-        inCart: true,
+        inCart: false,
         count: 0,
         total: 0,
         category: "lace-up"

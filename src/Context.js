@@ -24,7 +24,7 @@ function ProductProvider(props) {
 
     useEffect(() => {
         addTotal();
-
+        console.log(cart);
     }, [cart])
 
     const setMethod=()=>
@@ -154,6 +154,7 @@ function ProductProvider(props) {
         const total = newSubtotal + tax;
 
         setsubTotal(newSubtotal);
+        console.log(cart);
         setcartTax(tax);
         setcartTotal(total);
     }

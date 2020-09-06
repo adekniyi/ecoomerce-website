@@ -3,6 +3,7 @@ import '../App.css';
 import ProductItem from './ProductItem';
 import Title from './title';
 import {ProductConsumer} from '../Context';
+import Header from './Header';
 
 
 function ProductList() {
@@ -10,6 +11,7 @@ function ProductList() {
   return (
    
         <>
+      <Header/>
         <div className="py-5"> 
         <div className = "container"> 
         <Title title = "products"/>

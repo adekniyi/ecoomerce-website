@@ -6,8 +6,9 @@ import Navbar from './component/Navbar';
 import Cart from './component/cart/Cart';
 import ProductList from './component/ProductList';
 import Details from './component/Details';
-import Look from './component/look'
-import Modal from './component/Modal'
+import Look from './component/look';
+import Modal from './component/Modal';
+import Footer from './component/Footer';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/yourLook" component={Look}/>
         </Switch>
         <Modal/>
+        <Footer/>
      </React.Fragment>
   );
 }

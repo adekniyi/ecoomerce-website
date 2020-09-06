@@ -13,7 +13,7 @@ function ProductItem(props) {
   const{id,img,title,inCart,price} = props.product;
 
    return (
-    <ProductWrapper className = "col-9 mx-auto col-md-6  col-lg-3 my-3" >
+    <ProductWrapper className = "col-9 mx-auto col-md-6 col-lg-3 my-3 containerImg" >
         <div className="card">
         <ProductConsumer>
           {(value) => (
